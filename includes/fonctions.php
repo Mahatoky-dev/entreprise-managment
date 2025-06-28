@@ -61,3 +61,6 @@ function getInfoEmploye($emp_no) {
 function teste_git_fonction()   {
     
 }
+function nouvelleFOnctiontesgt() {
+    
+}
