@@ -1,0 +1,54 @@
+## PROJET GESTION DES DEPARTEMENTS
+
+INITITION DU PROJET :
+    - creation de l'architecture (creation des dossier de base)
+        - assets
+        - [ok] includes
+        - [ok] pages
+    - liée le projet avec la base de donné
+        - [ok] cration de la connection (connexion.php)
+
+CREATION DU COEUR DU PROJET :
+    - INTERATION AVEC LA BASE DE DONNÉ :    
+        - creation de fonction pour recuperer les DEPARTEMENTS
+            - [ok] recuperer les departement 
+            - fonction pour recuperer le nom du departement en cours (????)
+            - [ok] recuperer les employer d'un departement (par id du departement)
+    
+    - AFFICHAGE DES DONNES (dans pages) :
+        - creation de la pages affichage departement    [ok]
+        - creation de la page affichage des employer departement
+
+LISTE DES ETAPES  SUIVANTE :
+    - base de donné :
+        - [ok] revus de ce qui est deja faite 
+        - [ok] repondre a la 2 em question
+        - [ok] verifié la validité de la 3 em question
+    - html 
+        - structuré la page de selection de departement
+            - [ok] creé la liste des departements 
+            - [ok] pour chaque departement (repesenté en ligne) affiché le nom du manager en cours;
+        - structuré la page de liste des employeés
+            - affiché le nom du departement selectionné
+            - affiché la liste des employés
+    - css : (bootstrap)
+        - recherché une belle disign sur le web (design de projet web de type gestion)
+        - selectionné et modifié un design sur le web
+        - adaptation du design sur le web au projet (voir comment se demarqué !)
+        - creation de la disign pour la page de selection de departement
+        - creation de la disign pour la page liste employees departement
+
+
+suite v2 :
+    - creation de la page fiche employees :
+        - section information generale
+            - frist , last ,name
+            - date de naissance
+            - sex hire date 
+        - section historique de salaire et historique des employe
+            - artile history-salaire
+            - artile history-employees
+
+    - creation de la fonction pour recuperer les infomation d'un employeeé 
+        - argument ($emp_no)
+    - creation de fonction pour Valisoa o 

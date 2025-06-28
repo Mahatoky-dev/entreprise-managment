@@ -1,0 +1,9 @@
+v2 :
+creation de foction :
+    - [ok] recuperation info de base employée
+        - frist last name
+        - brith day
+        - sex
+        - hire date
+    -  recuperation des historique de salaire
+    - recuperation de l'historique d'emplois
