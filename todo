@@ -40,15 +40,8 @@ LISTE DES ETAPES  SUIVANTE :
 
 
 suite v2 :
-    - creation de la page fiche employees :
-        - section information generale
-            - frist , last ,name
-            - date de naissance
-            - sex hire date 
-        - section historique de salaire et historique des employe
-            - artile history-salaire
-            - artile history-employees
 
-    - creation de la fonction pour recuperer les infomation d'un employeeé 
-        - argument ($emp_no)
-    - ajout de contenu dans todo , teste par pc 1
+    - creation de la structure html
+        - creation de la page fiche
+        - creation de la page form 
+        - ajout de style

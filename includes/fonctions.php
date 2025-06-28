@@ -57,10 +57,3 @@ function getInfoEmploye($emp_no) {
     $deptInfo = mysqli_fetch_assoc($request);
     return $deptInfo;
 }
-
-function teste_git_fonction()   {
-    
-}
-function nouvelleFOnctiontesgt() {
-    
-}
