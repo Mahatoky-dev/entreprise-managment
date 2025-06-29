@@ -36,9 +36,29 @@ WHERE employees.emp_no = '%s';
 -- recuperation de l'historique de ses salaires   %s -> emp_no
 SELECT *
 FROM salaries
-WHERE salaire.emp_no = '%s';
-
+WHERE salaries.emp_no = '%s'
+ORDER BY salaries.from_date DESC;
 -- recuperation des emploees du personne
 SELECT *  
 FROM titles
-WHERE titles.emp_no = '%s';
+WHERE titles.emp_no = '%s'
+ORDER BY titles.from_date DESC;
+
+--selecitonné une portion d'employees dnans une departement precise
+SELECT employees.emp_no,employees.first_name,dept_emp.dept_no
+FROM employees
+JOIN dept_emp ON employees.emp_no = dept_emp.emp_no 
+WHERE dept_emp.dept_no = 'd001' AND dept_emp.to_date > NOW() LIMIT 0 , 10;
+
+-- recuperer les employees avec des conditions precise
+SELECT 
+    employees.emp_no,
+    employees.last_name,
+    employees.first_name,
+    TIMESTAMPDIFF(YEAR, employees.birth_date,NOW()) as age,
+FROM employees 
+JOIN dept_emp ON employees.emp_no = dept_emp.emp_no 
+WHERE 
+    dept_emp.dept_no = 'd009' 
+    AND (employees.first_name LIKE '%s' OR employees.last_name LIKE '%s')
+    AND age BETWEEN 20 , 60; 

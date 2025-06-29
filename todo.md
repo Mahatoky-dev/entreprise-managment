@@ -40,8 +40,41 @@ LISTE DES ETAPES  SUIVANTE :
 
 
 suite v2 :
+    - [ok] cration du structure html
+        - [ok] creation de la page fiche
+        - [ok] creation de la formulaire
+    - [ok] ajout d'une style minimaliste
+        - [ok] juste centrer les colones
+    - dinamisation
+        - fonction :
+            - [ok] recuperation des info emp
+            - [ok] recup hisrory tites 
+            - [ok] recup historiqye salary
+            - [ok] recuration des differente departement (pour le form)
+            - recherche d'employes avec condition
+                - [ok] dept 
+                - [ok] nom%s
+                - [ok] age min 
+                - [ok] age max
+        - [ok] affichage des donnes de l'employees
+        - [ok] affichage de ces titles
+        - [ok] affichage de ces salaire
+        - [ok] recuperation des donnes de recherche dans search_emp
+            - [ok] si il y en a : 
+                - [ok] affiché les donnes
+            - [ôk] s'il y en a pas affiché "recherché votre employer"
 
-    - creation de la structure html
-        - creation de la page fiche
-        - creation de la page form 
-        - ajout de style
+- css : 
+    - faire monté l'ispiration 
+        - regardé quelque exemple de site
+        - dessiné 
+            - dessiné modelé
+                - ajout de quellque information
+                    - nb de departemet
+                    - nb d'employé
+                    - nb d
+            - dessiné page departement
+            - dessiné page employees departement
+            - dessiné fiche (info employeé)
+            - dessiné recherche
+        - programmé
