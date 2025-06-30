@@ -1,7 +1,7 @@
 <?php
 $departementManagers = getAllDeptWithCurrnetManager();
 ?>
-<section class="p-3 d-flex flex-column justify-content-space-between ">
+<section class="p-3 d-flex flex-column justify-content-space-between mt-5">
     <article class="col-12">
         <header class="text-center ">
             <h1>liste des departements</h1>

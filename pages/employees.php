@@ -8,7 +8,7 @@ $precedent = $current - 10;
 $suivant = $current + 10;
 $employees = getEmpDept($dept_no, $current, 10);
 ?>
-<section class="container">
+<section class="container mt-5">
     <section class="info-dept">
         <h1><?= $infoDept["dept_name"] ?></h1>
     </section>

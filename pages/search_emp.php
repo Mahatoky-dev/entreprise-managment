@@ -4,7 +4,7 @@ $departments = getAllDepart();
 
 
 ?>
-<section class="container">
+<section class="container mt-5">
     <form action="./modele.php" method="get">
         <input type="hidden" name="page" value="search_emp.php">
         <select name="dept_no" id="">

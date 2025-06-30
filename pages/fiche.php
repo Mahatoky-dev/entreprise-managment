@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $salaries = getSalaryEmp($emp_no);
 }
 ?>
-<section class="info-eployees">
+<section class="info-eployees mt-5">
     <h2><?= $infoEmploye["first_name"] ?></h2>
     <p><?= $infoEmploye["age"] ?> ans</p>
     <p> employees depuis <?= $infoEmploye["hire_date"] ?></p>
