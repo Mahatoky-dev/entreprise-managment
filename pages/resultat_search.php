@@ -5,14 +5,19 @@
         $ageMin =  isset($_GET["min"]) ? $_GET["min"] : "";
         $ageMax =  isset($_GET["max"]) ? $_GET["max"] : "";
 
-        $currentDebEmp = isset($_GET["debutSelect"]) ? $_GET["debutSelect"] : 0;
-        $precedent = $currentDebEmp - 10;
-        $suivant = $currentDebEmp + 10;
+        if (!isset($_GET["pageEmp"])) {
+            $currentPage = 1;
+        } else {
+            $currentPage = $_GET["pageEmp"];
+        }
 
-        $precedentExiste = $precedent >= 0;
-        $suivantExiste = count(getEmployeesFor($dept_no, $nameEmp, $ageMin, $ageMax, $suivant, 1)) != 0;
+        $currentPage = isset($_GET["pageEmp"]) ? $_GET["pageEmp"] : 1;
+        $precedent = $currentPage - 1;
+        $suivant = $currentPage + 1;
 
-        $employees = getEmployeesFor($dept_no, $nameEmp, $ageMin, $ageMax, $currentDebEmp, 10);
+        $nbEmpParPage = 20;
+
+        $employees = getEmployeesFor($dept_no, $nameEmp, $ageMin, $ageMax, $currentPage, $nbEmpParPage);
     }
     ?>
  <!-- resulat de la recherche s'il est faite  -->
@@ -46,18 +51,18 @@
              </table>
              <div class="nav">
                  <ul>
-                     <?php if ($precedentExiste) {  ?>
+                   
                          <li>
-                             <a href="modele.php?page=search_emp.php&debutSelect=<?= $precedent ?>&dept_no=<?= $dept_no ?>&name_emp=<?= $nameEmp ?>&min=<?= $ageMin ?>&max=<?= $ageMax ?>">
+                             <a href="modele.php?page=search_emp.php&pageEmp=<?= $precedent ?>&dept_no=<?= $dept_no ?>&name_emp=<?= $nameEmp ?>&min=<?= $ageMin ?>&max=<?= $ageMax ?>">
                                  precedent</a>
                          </li>
-                     <?php } ?>
+                    
 
-                     <?php if ($suivantExiste) {  ?>
-                         <li><a href="modele.php?page=search_emp.php&&debutSelect=<?= $suivant ?>&dept_no=<?= $dept_no ?>&name_emp=<?= $nameEmp ?>&min=<?= $ageMin ?>&max=<?= $ageMax ?>">
+                    
+                         <li><a href="modele.php?page=search_emp.php&&pageEmp=<?= $suivant ?>&dept_no=<?= $dept_no ?>&name_emp=<?= $nameEmp ?>&min=<?= $ageMin ?>&max=<?= $ageMax ?>">
                                  suivant</a>
                          </li>
-                     <?php } ?>
+                    
                  </ul>
              </div>
          </article>

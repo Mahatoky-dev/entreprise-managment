@@ -122,8 +122,9 @@ function getIntervalDate($debut, $fin)
     return $dateDebut . " to " . $dateFin;
 }
 
-function getEmployeesFor($dept_no, $nameEmp, $ageMin, $ageMax , $debutLine , $nbLine)
+function getEmployeesFor($dept_no, $nameEmp, $ageMin, $ageMax , $page , $nbLine)
 {
+    $empDeb = ($page - 1) * $nbLine;
     $sql = "SELECT 
     employees.emp_no,
     employees.last_name,
@@ -137,7 +138,7 @@ function getEmployeesFor($dept_no, $nameEmp, $ageMin, $ageMax , $debutLine , $nb
         AND (TIMESTAMPDIFF(YEAR, employees.birth_date,NOW()) BETWEEN %s AND %s)
     LIMIT %s , %s;";
     $nameEmpInName = "%" . $nameEmp . "%";
-    $sql = sprintf($sql, $dept_no, $nameEmpInName, $nameEmpInName, $ageMin, $ageMax,$debutLine,$nbLine);
+    $sql = sprintf($sql, $dept_no, $nameEmpInName, $nameEmpInName, $ageMin, $ageMax,$empDeb,$nbLine);
     $request = mysqli_query(bddConnect(), $sql);
     $employees = array();
     while ($employe = mysqli_fetch_assoc($request)) {
