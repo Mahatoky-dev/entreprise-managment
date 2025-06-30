@@ -39,10 +39,7 @@ include("../includes/fonctions.php");
                 <a class="navbar-brand" href="#">Offcanvas dark navbar</a>
             </div>
         </nav>
-
-
     </header>
-    
     <main class="pt-3">
 
         <?php
@@ -52,8 +49,6 @@ include("../includes/fonctions.php");
             echo "auccune page chargé";
         }
         ?>
-
-
     </main>
     <script src="../assets/bootstrap/js/bootstrap.bundle.js"></script>
 </body>
