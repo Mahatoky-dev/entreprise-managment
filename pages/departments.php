@@ -26,6 +26,9 @@ $departementManagers = getAllDeptWithCurrnetManager();
                                 <?= $deptManag["manager_frist_name"] ?>
                                 <?= $deptManag["manager_last_name"] ?>
                             </td>
+                            <td>
+                                <?= $deptManag["nb_employee"] ?>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>

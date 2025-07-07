@@ -80,3 +80,11 @@ suite v2 :
         - programmé
 
         MATETA 2
+
+-  Ajout de colonne nombre employé sur la liste des departements
+     - ajouter a la fonction getAllDeptWithCurrnetManager une ppte qui compte le nb d'employe pour chaque employe
+     - integrer a l'affichage
+
+- Creation d'une page pour afficher un tableau contenant le nb d'employe et le salaire moyen de chaque emploi
+
+- dans la fiche mettre l'emploi le plus long 

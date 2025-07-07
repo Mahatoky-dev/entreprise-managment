@@ -16,7 +16,8 @@ function getAllDepart()
 function getAllDeptWithCurrnetManager()
 {
     $sql = "SELECT * 
-                FROM view_dept_full_manager 
+                FROM view_dept_full_manager d_m
+                JOIN v_employees_count e_c ON d_m.dept_no = e_c.dept_no
                 WHERE manager_to_date > NOW();";
 
     $request = mysqli_query(bddConnect(), $sql);
@@ -25,6 +26,7 @@ function getAllDeptWithCurrnetManager()
     }
     return $deptAndManagers;
 }
+
 
 //recuperer la liste des employers d'une departement precises
 function getEmpDept($dept_no, $debut, $fin)

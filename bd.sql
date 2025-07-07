@@ -103,4 +103,14 @@ JOIN v_employees_ages e_a ON e_d.emp_no = e_a.emp_no
 JOIN departments d ON d.dept_no = e_d.dept_no
 LIMIT 10;
 
--- 
+SELECT * FROM v_employees_departments e_d JOIN v_employees_ages e_a ON e_d.empt_no = e_a.empt_no;
+
+CREATE v_employees_count AS 
+SELECT 
+    e_d.dept_no, COUNT (e_d.emp_no)
+FROM 
+    v_employees_departments e_d
+GROUP BY e_d.dept_no;
+
+SELECT COUNT(*) FROM employees;
+
