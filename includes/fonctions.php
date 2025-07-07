@@ -124,7 +124,7 @@ function getIntervalDate($debut, $fin)
     return $dateDebut . " to " . $dateFin;
 }
 
-function getEmployeesFor($dept_no, $nameEmp, $ageMin, $ageMax , $page , $nbLine)
+function getEmployeesFor($dept_no, $nameEmp, $ageMin, $ageMax, $page, $nbLine)
 {
     $empDeb = ($page - 1) * $nbLine;
     $sql = "SELECT 
@@ -140,11 +140,54 @@ function getEmployeesFor($dept_no, $nameEmp, $ageMin, $ageMax , $page , $nbLine)
         AND (TIMESTAMPDIFF(YEAR, employees.birth_date,NOW()) BETWEEN %s AND %s)
     LIMIT %s , %s;";
     $nameEmpInName = "%" . $nameEmp . "%";
-    $sql = sprintf($sql, $dept_no, $nameEmpInName, $nameEmpInName, $ageMin, $ageMax,$empDeb,$nbLine);
+    $sql = sprintf($sql, $dept_no, $nameEmpInName, $nameEmpInName, $ageMin, $ageMax, $empDeb, $nbLine);
     $request = mysqli_query(bddConnect(), $sql);
     $employees = array();
     while ($employe = mysqli_fetch_assoc($request)) {
         $employees[] = $employe;
     }
     return $employees;
+}
+
+function getNbFemme()
+{
+    $sql = "SELECT COUNT(*) AS nb
+                FROM v_employees_femme;";
+
+    $request = mysqli_query(bddConnect(), $sql);
+
+    return mysqli_fetch_assoc($request)["nb"];
+}
+
+function getnbHomme()
+{
+    $sql = "SELECT COUNT(*) AS nb
+                FROM v_employees_homme;";
+
+    $request = mysqli_query(bddConnect(), $sql);
+
+    return mysqli_fetch_assoc($request)["nb"];
+}
+
+function getTitlesSalaryAvg()
+{
+    $sql = "SELECT title , AVG(salary) as salary_avg
+            FROM v_salaires_titles s_t GROUP BY s_t.title;";
+
+    $request = mysqli_query(bddConnect(), $sql);
+
+    $request = mysqli_query(bddConnect(), $sql);
+    while ($titleAvg = mysqli_fetch_assoc($request)) {
+        $titleAvgs[] = $titleAvg;
+    }
+    return $titleAvgs;
+}
+
+function getTitleLonger($empt_no) {
+    $sql = "SELECT COUNT(*) AS nb
+                FROM v_employees_homme;";
+
+    $request = mysqli_query(bddConnect(), $sql);
+
+    return mysqli_fetch_assoc($request)["nb"];
 }

@@ -145,8 +145,10 @@ FROM v_salaires_titles s_t GROUP BY s_t.title ;
 CREATE VIEW v_employees_durre_titles AS
 SELECT e.emp_no , t.title , TIMESTAMPDIFF(DAY, t.from_date,t.to_date) titles_durre
 FROM employees e
-JOIN titles t ON e.emp_no = t.emp_no LIMIT 10;
+JOIN titles t ON e.emp_no = t.emp_no 
+WHERE  to_date != "9999-01-01";
 
--- les employees et les dureer de chaque title
-
-DROP VIEW v_employees_titles;
+-- recuperer la l'omployer current pour l'employer
+SELECT *
+FROM v_employees_durre_titles e_d_t
+WHERE e_d_t.emp_no = "%s" ORDER BY e_d_t.titles_durre DESC LIMIT 1;
