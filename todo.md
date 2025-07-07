@@ -87,4 +87,4 @@ suite v2 :
 
 - Creation d'une page pour afficher un tableau contenant le nb d'employe et le salaire moyen de chaque emploi
 
-- dans la fiche mettre l'emploi le plus long 
+- dans la fiche mettre l'emploi le plus long

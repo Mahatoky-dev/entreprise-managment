@@ -105,12 +105,48 @@ LIMIT 10;
 
 SELECT * FROM v_employees_departments e_d JOIN v_employees_ages e_a ON e_d.empt_no = e_a.empt_no;
 
+-- sqdmfkqsdfmqsdkfqsdf
 CREATE v_employees_count AS 
 SELECT 
-    e_d.dept_no, COUNT (e_d.emp_no)
+    e_d.dept_no, COUNT(e_d.emp_no)
 FROM 
     v_employees_departments e_d
 GROUP BY e_d.dept_no;
 
 SELECT COUNT(*) FROM employees;
+-- sdfqsdfsdqjfhqsdlkfdsqf
+-- ajouter les nb d'employees
+SELECT e_d.dept_no, COUNT(e_d.emp_no) 
+FROM v_employees_departments e_d 
+GROUP BY dept_no;
 
+-- creation de vue liste homme liste femme 
+-- liste des employees homme
+CREATE VIEW v_employees_homme AS
+SELECT e.emp_no
+FROM employees e 
+WHERE e.gender = "M";
+
+CREATE VIEW v_employees_femme AS
+SELECT e.emp_no
+FROM employees e 
+WHERE e.gender = "F";
+
+CREATE VIEW v_salaires_titles AS 
+SELECT s.salary ,t.title
+FROM salaries s 
+JOIN titles t ON s.emp_no = t.emp_no;
+
+-- liste des salaire moyenne pour chaque title
+SELECT title , AVG(salary)
+FROM v_salaires_titles s_t GROUP BY s_t.title ;
+
+-- employees et tiles
+CREATE VIEW v_employees_durre_titles AS
+SELECT e.emp_no , t.title , TIMESTAMPDIFF(DAY, t.from_date,t.to_date) titles_durre
+FROM employees e
+JOIN titles t ON e.emp_no = t.emp_no LIMIT 10;
+
+-- les employees et les dureer de chaque title
+
+DROP VIEW v_employees_titles;
