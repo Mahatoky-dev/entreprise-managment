@@ -51,18 +51,15 @@
              </table>
              <div class="nav">
                  <ul>
-                   
-                         <li>
-                             <a href="modele.php?page=search_emp.php&pageEmp=<?= $precedent ?>&dept_no=<?= $dept_no ?>&name_emp=<?= $nameEmp ?>&min=<?= $ageMin ?>&max=<?= $ageMax ?>">
-                                 precedent</a>
-                         </li>
-                    
 
-                    
-                         <li><a href="modele.php?page=search_emp.php&&pageEmp=<?= $suivant ?>&dept_no=<?= $dept_no ?>&name_emp=<?= $nameEmp ?>&min=<?= $ageMin ?>&max=<?= $ageMax ?>">
-                                 suivant</a>
-                         </li>
-                    
+                     <li>
+                         <a href="modele.php?page=search_emp.php&pageEmp=<?= $precedent ?>&dept_no=<?= $dept_no ?>&name_emp=<?= $nameEmp ?>&min=<?= $ageMin ?>&max=<?= $ageMax ?>">
+                             precedent</a>
+                     </li>
+                     <li><a href="modele.php?page=search_emp.php&&pageEmp=<?= $suivant ?>&dept_no=<?= $dept_no ?>&name_emp=<?= $nameEmp ?>&min=<?= $ageMin ?>&max=<?= $ageMax ?>">
+                             suivant</a>
+                     </li>
+
                  </ul>
              </div>
          </article>

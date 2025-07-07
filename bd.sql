@@ -10,7 +10,7 @@ JOIN dept_manager ON departments.dept_no = dept_manager.dept_no
 JOIN employees ON dept_manager.emp_no = employees.emp_no;
 
 -- recuperation des manages des departements current
-SELECT * 
+SELECT *
 FROM view_dept_full_manager 
 WHERE manager_to_date > NOW();
 -- Recuperation des employeés d'un departement donné '%s -> dept_no'
@@ -29,7 +29,7 @@ JOIN titles ON employees.emp_no = titles.emp_no
 WHERE dept_emp.dept_no ='%s';
 
 -- recuperatio des informations des employes  %s -> emp_no
-SELECT *  
+SELECT *
 FROM employees 
 WHERE employees.emp_no = '%s';
 
@@ -61,4 +61,46 @@ JOIN dept_emp ON employees.emp_no = dept_emp.emp_no
 WHERE 
     dept_emp.dept_no = 'd009' 
     AND (employees.first_name LIKE '%s' OR employees.last_name LIKE '%s')
-    AND age BETWEEN 20 , 60; 
+    AND age BETWEEN 20 , 60;
+
+
+-- creation des vues
+
+-- POUR LA VERSION 1 :
+-- creation de la vus avec la liste des demartement avec leur manager en cours 
+CREATE VIEW v_employees_manager AS 
+SELECT 
+    e.emp_no ,e.first_name ,e.last_name ,
+    d_m.from_date, d_m.to_date,
+    d.dept_name,d.dept_no
+FROM employees e 
+JOIN dept_manager d_m ON e.emp_no = d_m.emp_no
+JOIN departments d ON d_m.dept_no = d.dept_no 
+WHERE d_m.to_date >= NOW();
+
+SELECT * FROM v_employees_manager;
+
+-- vue pour les employes des et l'id du departement
+CREATE VIEW v_employees_departments AS
+SELECT e.emp_no,e.first_name,e.last_name,d_e.dept_no
+FROM employees e 
+JOIN dept_emp d_e ON e.emp_no = d_e.emp_no 
+WHERE d_e.to_date >= NOW();
+
+-- VERSION 2 :
+
+-- L des employees et les age
+CREATE VIEW v_employees_ages AS
+SELECT
+    e.emp_no,
+    TIMESTAMPDIFF(YEAR, e.birth_date,NOW()) as emp_age
+FROM employees e;
+
+-- recuperer les deparement,les nom de l'employees , employees avec age
+SELECT *
+FROM v_employees_departments e_d 
+JOIN v_employees_ages e_a ON e_d.emp_no = e_a.emp_no
+JOIN departments d ON d.dept_no = e_d.dept_no
+LIMIT 10;
+
+-- 
